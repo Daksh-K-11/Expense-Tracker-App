@@ -15,12 +15,12 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(
-        title: 'Flutter Course',
+        title: 'Some thing',
         amount: 19.99,
         date: DateTime.now(),
         category: Category.work),
     Expense(
-        title: 'Cinema',
+        title: 'Movie',
         amount: 15.69,
         date: DateTime.now(),
         category: Category.leisure),
@@ -41,31 +41,8 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
-  void _removeExpense(Expense expense) {
-    final expenseIndex = _registeredExpenses.indexOf(expense);
-    setState(() {
-      _registeredExpenses.remove(expense);
-    });
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        duration: const Duration(seconds: 3),
-        content: const Text('Expnese Deleted'),
-        action: SnackBarAction(
-          label: 'Undo',
-          onPressed: () {
-            setState(() {
-              _registeredExpenses.insert(expenseIndex, expense);
-            });
-          },
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
 
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'),
@@ -74,12 +51,11 @@ class _ExpensesState extends State<Expenses> {
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(
         expenses: _registeredExpenses,
-        onRemoveExpense: _removeExpense,
       );
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FLutter Expense Tracker'),
+        title: const Text('Expense Tracker'),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
