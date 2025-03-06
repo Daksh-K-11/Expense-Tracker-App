@@ -5,6 +5,7 @@ As of now, there is no backend connected to it. I just want to focus on the fron
 Let me walk you through the features:
 - The user can see the list of expenses ( I have hardcoded 2 expenses )
 - The user can add new expense
+- I have a floating action button, but I don't why it exists, will probably remove it 😓
 
 Some things I would like to add:
 - Delete feature: The old fashion method of having a pop up menu, you know, the one with the 3 vertical dots, that allows you to delete is so boring. I want something unique
